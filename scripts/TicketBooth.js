@@ -8,11 +8,8 @@ eventHub.addEventListener(
         const buttonClicked = clickEvent.target
         if (buttonClicked.id.startsWith("ride")) {
 //what is done if they click on the right thing
-            const rideEvent = new CustomEvent ("rideTicketPurchased", {
-                detail: {
-                    ticketPurchased: "Ride"
-                }
-            })
+            const rideEvent = new CustomEvent ("rideTicketPurchased")
+
             eventHub.dispatchEvent(rideEvent)
             console.log("Made it this far")
         }
