@@ -1,10 +1,24 @@
 const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
-eventHub.addEventListener()
-//add event listner where it: checks if the ride ticket button was pressed, if so: create custom event that describes what happened :
-// const rideEvent = new CustomEvent("rideTicketPurchased")
-// dispatch the rideEvent to the "event hub"
+
+eventHub.addEventListener(
+    "click",
+    (clickEvent) => {
+        const buttonClicked = clickEvent.target
+        if (buttonClicked.id.startsWith("ride")) {
+//what is done if they click on the right thing
+            const rideEvent = new CustomEvent ("rideTicketPurchased", {
+                detail: {
+                    ticketPurchased: "Ride"
+                }
+            })
+            eventHub.dispatchEvent(rideEvent)
+            console.log("Made it this far")
+        }
+    }
+)
+
 
 
 // Altered example taken from W3 schools for event listener on a button
